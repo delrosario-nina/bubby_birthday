@@ -1,0 +1,254 @@
+@font-face {
+    font-family: "Myfont";
+    src: url(fonts/Myfont-Regular.otf);
+}
+
+body {
+    overflow: hidden;
+    font-family: "Myfont";
+}
+
+.header-row {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.spacer{
+    width: 40px;
+    display: block;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+}
+
+.greeting {
+    color: rgb(94, 26, 26);
+    margin: 0;
+    font-size: 5.5rem;
+    text-align: center;
+    position: static;
+    flex: 1;
+    left: auto;
+    transform: none;
+    width: auto;
+}
+
+.buttons {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 10px 10px;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    justify-content: right;
+}
+
+.buttons:hover{
+    color: rgb(94, 26, 26);
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;      
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.bg { 
+   z-index: 1;
+   background-image: url('imgs/reference.png');
+}
+
+.kitchen-scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('imgs/complete-kitchen-scene.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hotspot {
+    position: absolute;
+    cursor: pointer;
+    background: transparent;
+}
+
+.hotspot.garlic {
+    top: 75%;      
+    left: 32%;     
+    width: 60px;   
+    height: 50px;  
+}
+
+.hotspot.potato {
+    top: 65%;
+    left: 21%;
+    width: 120px;
+    height: 70px;
+}
+
+.hotspot.petchay {
+    top: 74%;
+    right: 22%;
+    width: 160px;
+    height: 90px;
+}
+
+.hotspot.meat {
+    top: 60%;
+    left: 45%;
+    width: 180px;
+    height: 120px;
+}
+
+.hotspot.tuna {
+    top: 75%;
+    left: 4%;
+    width: 85px;
+    height: 90px;
+}
+
+.hotspot.onion {
+    top: 78%;
+    left: 27%;
+    width: 60px;
+    height: 52px;
+}
+
+.hotspot.pan {
+    top: 57%;
+    right: 17%;
+    width: 210px;
+    height: 90px;
+}
+
+.hotspot.utensils {
+    top: 40%;
+    right: 0%;
+    width: 80px;
+    height: 215px;
+}
+
+.hotspot.pepper {
+    top: 47%;
+    left: 11%;
+    width: 65px;
+    height: 170px;
+}
+
+.hotspot.bread {
+    top: 56%;
+    left: 0%;
+    width: 140px;
+    height: 140px;
+}
+
+.hotspot.portraits {
+    top: 0%;
+    right: 0%;
+    width: 450px;
+    height: 200px;
+}
+
+.hotspot.spices {
+    top: 72%;
+    right: 2%;
+    width: 90px;
+    height: 80px;
+}
+
+.hotspot.cleaver {
+    top: 14%;
+    left: 25%;
+    width: 120px;
+    height: 190px;
+}
+
+.hotspot.spatulas {
+    top: 8%;
+    left: 3%;
+    width: 145px;
+    height: 190px;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 247, 237, 0.95);
+    color: rgb(94, 26, 26);
+    padding: 10px 50px;
+    border-radius: 8px;
+    font-size: 3.5rem;
+    white-space: pre-line;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    min-width: 250px;
+    text-align: center;
+}
+
+.hotspot:hover .tooltip {
+    display: block;
+}
+/* For hotspots on the left side - position tooltip to the right */
+.hotspot.tuna .tooltip,
+.hotspot.bread .tooltip,
+.hotspot.pepper .tooltip {
+    bottom: 50%;
+    left: 110%;
+    transform: translateY(-50%);
+}
+
+/* For hotspots on the right side - position tooltip to the left */
+.hotspot.spices .tooltip,
+.hotspot.utensils .tooltip,
+.hotspot.portraits .tooltip {
+    bottom: 50%;
+    right: 110%;
+    left: auto;
+    transform: translateY(-50%);
+}
+
+/* For hotspots at the bottom - position tooltip above */
+.hotspot.onion .tooltip,
+.hotspot.garlic .tooltip,
+.hotspot.potato .tooltip {
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* For hotspots at the top - position tooltip below */
+.hotspot.spatulas .tooltip,
+.hotspot.cleaver .tooltip,
+.hotspot.portraits .tooltip {
+    top: 110%;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}

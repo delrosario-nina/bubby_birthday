@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+</head>
+
+<body>
+    <div class="menu-links">
+        <a href="recipe_for_us.html" class="text">to cook with cj</a>
+        <a href="recipe_for_you.html" class="text">to be in love with cj</a>
+        <a href="memories.html" class="text">to remember the good times</a>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wrap each letter in a span
+            document.querySelectorAll('.text').forEach(link => {
+                const chars = link.textContent.split('');
+                link.innerHTML = '';
+                chars.forEach((char, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.className = 'letter';
+                    span.style.transitionDelay = (i * 0.05) + 's';
+                    link.appendChild(span);
+                });
+            });
+            
+            // Add hover animation
+            document.querySelectorAll('.text').forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.querySelectorAll('.letter').forEach(span => {
+                        span.classList.add('pop');
+                    });
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.querySelectorAll('.letter').forEach(span => {
+                        span.classList.remove('pop');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
